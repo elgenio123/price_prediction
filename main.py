@@ -22,8 +22,9 @@ def main():
     numerical_cols = X.select_dtypes(include=['int64']).columns
     categorical_cols = X.select_dtypes(include=['object']).columns
 
+    print("Please wait while model is being trained")
     model= create_predict_price_model(X_train,y_train, numerical_cols, categorical_cols)
-    print("Model created and trained successfully")
+    print("Model trained successfully")
     # Evaluate the model
     predictions = model.predict(X_test)
     mse = mean_squared_error(y_test, predictions)
